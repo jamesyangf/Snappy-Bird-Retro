@@ -19,6 +19,14 @@ struct BitMasks{
     
 }
 
+//This will be used to set the z-position for what ever we add
+enum Layer: CGFloat {
+    case Background //0
+    case Pipe //1
+    case Ground //2
+    case Player  //3
+}
+
 
 class GameScene: SKScene,SKPhysicsContactDelegate {
     
@@ -30,7 +38,11 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     //the background
     var bg = SKSpriteNode()
     var bgTexture = SKTexture(imageNamed: "background")
-    var scaleBg = CGFloat(3.2)
+    var scaleBg = CGFloat(1.2)
+    
+    //the ground
+    var ground = SKSpriteNode()
+    var groundTexture = SKTexture(imageNamed: "ground")
     
     //the player
     var player = SKSpriteNode()
@@ -71,12 +83,13 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -12.0)
         self.addChild(movingObject)
         
-        self.physicsBody = SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: 0), toPoint: CGPoint(x: frame.width,y: 0))
+        self.physicsBody = SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: frame.height/12), toPoint: CGPoint(x: frame.width,y: frame.height/12))
         self.physicsBody?.friction = 0
         self.physicsBody?.categoryBitMask = BitMasks.bottomCategory
         self.physicsBody?.contactTestBitMask = BitMasks.playerCategory
         
         settingBackground()
+        settingGround()
         settingPlayer()
         setUpScore()
         setUpHighScore()
@@ -98,9 +111,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         // Animates Background 3
         bg = SKSpriteNode(texture: bgTexture)
-        //  Position background
-        bg.position = CGPointMake(self.size.width/2, self.size.height/2)
         bg.setScale(scaleBg)
+        
         
         
         //Moves screen
@@ -113,12 +125,41 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         {
             bg = SKSpriteNode(texture: bgTexture)
             bg.setScale(scaleBg)
+            bg.zPosition = Layer.Background.rawValue
             bg.position = CGPoint(x: bgTexture.size().width/2 + bgTexture.size().width * i * scaleBg, y: self.frame.height/2)
             //bg.alpha = 0.75
             bg.runAction(moveAndReplace)
             movingObject.addChild(bg)
         }
     }
+    
+    //scrooling ground
+    func settingGround(){
+        // Animates ground
+        ground = SKSpriteNode(texture: groundTexture)
+        ground.zPosition = Layer.Ground.rawValue
+        
+        
+        //Moves screen
+        var moveBg = SKAction.moveByX(-groundTexture.size().width * scaleBg, y: 0, duration: 9)
+        var replaceBg = SKAction.moveByX(groundTexture.size().width * scaleBg, y: 0, duration: 0)
+        var moveAndReplace = SKAction.repeatActionForever(SKAction.sequence([moveBg, replaceBg]))
+        
+        //  Loops groundImage
+        for var i:CGFloat=0; i<3; i++
+        {
+            ground = SKSpriteNode(texture: groundTexture)
+            ground.setScale(scaleBg)
+            ground.zPosition = Layer.Ground.rawValue
+            ground.position = CGPoint(x: groundTexture.size().width/2 + groundTexture.size().width * i * scaleBg, y: self.frame.height/64)
+            //bg.alpha = 0.75
+            ground.runAction(moveAndReplace)
+            movingObject.addChild(ground)
+        }
+
+        
+    }
+    
     
     func settingUpTapImage(){
         
@@ -137,6 +178,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         player = SKSpriteNode(imageNamed: "frame-1")
         player.position = CGPointMake(self.size.width/2.5, self.size.height/2) //position the player
+        player.zPosition = Layer.Player.rawValue
         
         //loops through all the animation
         for (var i = 1; i <= 3; i++)
@@ -174,12 +216,14 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             //The bottom pipe
             var bottomPipeTexture = SKTexture (imageNamed: "bottomPipe")
             bottomPipe = SKSpriteNode(texture: bottomPipeTexture)
+            bottomPipe.zPosition = Layer.Pipe.rawValue
             bottomPipe.position = CGPoint(x: self.size.width, y: randomHeight) //random height for the bottom
             bottomPipe.runAction(pipeSequence)
             
             //The top pipe
             var topPipeTexture = SKTexture(imageNamed: "topPipe")
             topPipe = SKSpriteNode(texture: topPipeTexture)
+            topPipe.zPosition = Layer.Pipe.rawValue
             topPipe.position = CGPoint(x: self.size.width, y:(bottomPipe.position.y + topPipe.size.height + pipeGap)) //the top pipe will follow the bottom pipe height with a gap
             topPipe.runAction(pipeSequence)
             
@@ -364,6 +408,10 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             theDefault.setInteger(score, forKey: "highscore")
             theDefault.synchronize()
              highScoreLabel.text = "\(score)"
+        }
+        
+        if player.position.y <  0 - player.size.height {
+            player.removeFromParent()
         }
     }
     
