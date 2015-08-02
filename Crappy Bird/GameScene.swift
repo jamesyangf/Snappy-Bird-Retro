@@ -187,7 +187,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         }
         
         // animate wings - .01 is fast - sample at 0.1 - 0.05 these setting will repostion bird
-        var animate = SKAction.animateWithTextures(arrayOfPlayer, timePerFrame: 0.05)
+        var animate = SKAction.animateWithTextures(arrayOfPlayer, timePerFrame: 0.07)
         var makePlayerAnimate = SKAction.repeatActionForever(animate)
         
         //runs the animation
@@ -197,7 +197,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.addChild(player)
         
         //the pipeGap is 2.5 times the size of the player
-        pipeGap = player.size.height*2.0
+        pipeGap = player.size.height*2.5
         
         
     }
@@ -216,6 +216,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             //The bottom pipe
             var bottomPipeTexture = SKTexture (imageNamed: "bottomPipe")
             bottomPipe = SKSpriteNode(texture: bottomPipeTexture)
+            bottomPipe.size.width = 100
             bottomPipe.zPosition = Layer.Pipe.rawValue
             bottomPipe.position = CGPoint(x: self.size.width, y: randomHeight) //random height for the bottom
             bottomPipe.runAction(pipeSequence)
@@ -223,21 +224,22 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             //The top pipe
             var topPipeTexture = SKTexture(imageNamed: "topPipe")
             topPipe = SKSpriteNode(texture: topPipeTexture)
+            topPipe.size.width = 100
             topPipe.zPosition = Layer.Pipe.rawValue
             topPipe.position = CGPoint(x: self.size.width, y:(bottomPipe.position.y + topPipe.size.height + pipeGap)) //the top pipe will follow the bottom pipe height with a gap
             topPipe.runAction(pipeSequence)
             
             
             // physical body of the Pipes
-            bottomPipe.physicsBody = SKPhysicsBody(rectangleOfSize: bottomPipe.size)
+            bottomPipe.physicsBody = SKPhysicsBody(texture: bottomPipeTexture, size: bottomPipe.size)
             bottomPipe.physicsBody?.dynamic = false
-            topPipe.physicsBody = SKPhysicsBody(rectangleOfSize: topPipe.size)
+            topPipe.physicsBody = SKPhysicsBody(texture: topPipeTexture, size: topPipe.size)
             topPipe.physicsBody?.dynamic = false
             
             
             // The gap between the pipes
             var gap = SKNode()
-            gap.position = CGPoint(x: size.width+bottomPipe.size.width, y: bottomPipe.position.y + bottomPipe.size.height/2 + pipeGap/2)
+            gap.position = CGPoint(x: size.width+bottomPipe.size.width - 50, y: bottomPipe.position.y + bottomPipe.size.height/2 + pipeGap/2)
             gap.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(1, pipeGap)) //the physics body of the gap
             gap.physicsBody?.dynamic = false
             gap.runAction(pipeSequence) //this will do the same action as the pipes
@@ -266,6 +268,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         scoreLabel.fontName = "jabjai"
         scoreLabel.fontSize = 50
         scoreLabel.text = "0"
+        scoreLabel.fontColor = UIColor.blackColor()
         scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - self.frame.size.height/4)
         //scoreLabel.alpha=0
         scoreLabel.zPosition=9
@@ -279,6 +282,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         highScoreLabel.fontName = "jabjai"
         highScoreLabel.fontSize = 50
         highScoreLabel.text = "\(highScore)"
+        highScoreLabel.fontColor = UIColor.blackColor()
         highScoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - self.frame.size.height/7)
         //highScoreLabel.alpha=0.7
         highScoreLabel.zPosition=9
@@ -340,8 +344,13 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             self.runAction(playerScores)
             score++
             scoreLabel.text = "\(score)"
+            // Add a little visual feedback for the score increment
+            scoreLabel.runAction(SKAction.sequence([SKAction.scaleTo(1.5, duration:NSTimeInterval(0.1)), SKAction.scaleTo(1.0, duration:NSTimeInterval(0.1))]))
             secondBody.node?.removeFromParent() //remove gapCategory
-        }else if firstBody.categoryBitMask == BitMasks.playerCategory && secondBody.categoryBitMask == BitMasks.pipeCategory{
+        
+        }else if firstBody.categoryBitMask == BitMasks.playerCategory && secondBody.categoryBitMask ==
+            
+            BitMasks.pipeCategory{
             println("player hit log")
             if !gameOver {
                 self.runAction(playerHit)
@@ -386,17 +395,17 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         // Making the game harder
         if(score >= 10 && score <= 20){
-            pipeGap = player.size.height*1.9
+            pipeGap = player.size.height*2.3
         }
         if(score >= 21 && score <= 30){
-            pipeGap = player.size.height*1.8
+            pipeGap = player.size.height*2.1
         }
         if(score >= 31 && score <= 50){
-            pipeGap = player.size.height*1.7
+            pipeGap = player.size.height*1.9
         }
         if score >= 50{
             //pipe actions moving up and down
-            pipeGap = player.size.height*1.7
+            pipeGap = player.size.height*1.9
             var moveUp = SKAction.moveToY(pipeGap , duration: NSTimeInterval(21.0))
             var moveDown = SKAction.moveToY(-pipeGap , duration: NSTimeInterval(3.0))
             bottomPipe.runAction(SKAction.repeatActionForever(SKAction.sequence([moveUp,moveDown])))
