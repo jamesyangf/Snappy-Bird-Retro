@@ -14,7 +14,8 @@ struct BitMasks{
     static let playerCategory: UInt32 = 0x1 << 0
     static let pipeCategory: UInt32 = 0x1 << 1
     static let gapCategory: UInt32 = 0x1 << 2
-    static let noneCategory: UInt32 = 0x1 << 3
+    static let bottomCategory: UInt32 = 0x1 << 3
+    static let noneCategory: UInt32 = 0x1 << 4
     
 }
 
@@ -70,8 +71,10 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -12.0)
         self.addChild(movingObject)
         
-        self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
+        self.physicsBody = SKPhysicsBody(edgeFromPoint: CGPoint(x: 0,y: 0), toPoint: CGPoint(x: frame.width,y: 0))
         self.physicsBody?.friction = 0
+        self.physicsBody?.categoryBitMask = BitMasks.bottomCategory
+        self.physicsBody?.contactTestBitMask = BitMasks.playerCategory
         
         settingBackground()
         settingPlayer()
@@ -132,13 +135,13 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     func settingPlayer(){
         
-        player = SKSpriteNode(imageNamed: "felpudoFly1")
+        player = SKSpriteNode(imageNamed: "frame-1")
         player.position = CGPointMake(self.size.width/2.5, self.size.height/2) //position the player
         
         //loops through all the animation
-        for (var i = 1; i <= 11; i++)
+        for (var i = 1; i <= 3; i++)
         {
-            arrayOfPlayer.append((SKTexture(imageNamed:"felpudoFly\(i)")))
+            arrayOfPlayer.append((SKTexture(imageNamed:"frame-\(i)")))
         }
         
         // animate wings - .01 is fast - sample at 0.1 - 0.05 these setting will repostion bird
@@ -148,11 +151,11 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         //runs the animation
         player.runAction(makePlayerAnimate)
         // Shrink bird add scale last
-        player.setScale(0.87)
+        player.setScale(0.4)
         self.addChild(player)
         
         //the pipeGap is 2.5 times the size of the player
-        pipeGap = player.size.height*1.8
+        pipeGap = player.size.height*2.0
         
         
     }
@@ -255,13 +258,14 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
                 player.physicsBody?.allowsRotation = false
             
                 player.physicsBody?.velocity = CGVectorMake(0, 0)
-                player.physicsBody?.applyImpulse(CGVectorMake(0, 60))
+                player.physicsBody?.applyImpulse(CGVectorMake(0, 9))
             
                 //player BitMask
                 player.physicsBody?.categoryBitMask = BitMasks.playerCategory
                 player.physicsBody?.contactTestBitMask = BitMasks.pipeCategory
                 player.physicsBody?.contactTestBitMask = BitMasks.gapCategory
-                player.physicsBody?.collisionBitMask = BitMasks.noneCategory //the player does not collide with anything
+                player.physicsBody?.contactTestBitMask = BitMasks.bottomCategory
+                player.physicsBody?.collisionBitMask = BitMasks.noneCategory//the player does not collide with anything
                 self.runAction(playerFlap)
                 self.createParticles()
 
@@ -301,9 +305,15 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
                 movingObject.speed = 0 //everyting stops moving
             }
 
+        }else if firstBody.categoryBitMask == BitMasks.playerCategory && secondBody.categoryBitMask == BitMasks.bottomCategory{
+            if !gameOver {
+                self.runAction(playerHit)
+                gameOver = true
+                movingObject.speed = 0 //everyting stops moving
+            }
+
         }
     }
-    
     //the rotating function, if the player's velocity is negative, the player will rotate in neg vice versa
     //player's rotation is affected by its velocty every way
     func rotation(min: CGFloat, max: CGFloat, value: CGFloat) -> CGFloat{
@@ -332,13 +342,13 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         // Making the game harder
         if(score >= 10 && score <= 20){
-            pipeGap = player.size.height*1.7
+            pipeGap = player.size.height*1.9
         }
         if(score >= 21 && score <= 30){
-            pipeGap = player.size.height*1.6
+            pipeGap = player.size.height*1.8
         }
         if(score >= 31 && score <= 50){
-            pipeGap = player.size.height*1.5
+            pipeGap = player.size.height*1.7
         }
         if score >= 50{
             //pipe actions moving up and down
