@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7634C06D1B6D4DE40016332B"
-               BuildableName = "Crappy Bird.app"
-               BlueprintName = "Crappy Bird"
-               ReferencedContainer = "container:Crappy Bird.xcodeproj">
+               BuildableName = "Snappy Bird Retro.app"
+               BlueprintName = "Snappy Bird Retro"
+               ReferencedContainer = "container:Snappy Bird Retro.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7634C0861B6D4DE40016332B"
-               BuildableName = "Crappy BirdTests.xctest"
-               BlueprintName = "Crappy BirdTests"
-               ReferencedContainer = "container:Crappy Bird.xcodeproj">
+               BuildableName = "Snappy Bird RetroTests.xctest"
+               BlueprintName = "Snappy Bird RetroTests"
+               ReferencedContainer = "container:Snappy Bird Retro.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7634C0861B6D4DE40016332B"
-               BuildableName = "Crappy BirdTests.xctest"
-               BlueprintName = "Crappy BirdTests"
-               ReferencedContainer = "container:Crappy Bird.xcodeproj">
+               BuildableName = "Snappy Bird RetroTests.xctest"
+               BlueprintName = "Snappy Bird RetroTests"
+               ReferencedContainer = "container:Snappy Bird Retro.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7634C06D1B6D4DE40016332B"
-            BuildableName = "Crappy Bird.app"
-            BlueprintName = "Crappy Bird"
-            ReferencedContainer = "container:Crappy Bird.xcodeproj">
+            BuildableName = "Snappy Bird Retro.app"
+            BlueprintName = "Snappy Bird Retro"
+            ReferencedContainer = "container:Snappy Bird Retro.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7634C06D1B6D4DE40016332B"
-            BuildableName = "Crappy Bird.app"
-            BlueprintName = "Crappy Bird"
-            ReferencedContainer = "container:Crappy Bird.xcodeproj">
+            BuildableName = "Snappy Bird Retro.app"
+            BlueprintName = "Snappy Bird Retro"
+            ReferencedContainer = "container:Snappy Bird Retro.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7634C06D1B6D4DE40016332B"
-            BuildableName = "Crappy Bird.app"
-            BlueprintName = "Crappy Bird"
-            ReferencedContainer = "container:Crappy Bird.xcodeproj">
+            BuildableName = "Snappy Bird Retro.app"
+            BlueprintName = "Snappy Bird Retro"
+            ReferencedContainer = "container:Snappy Bird Retro.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -203,7 +203,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         self.addChild(player)
         
         //the pipeGap is 2.5 times the size of the player
-        pipeGap = player.size.height*2.5
+        pipeGap = player.size.height*2.3
         
         
     }
@@ -429,7 +429,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
 
         // Making the game harder
         if(score >= 10 && score <= 20){
-            pipeGap = player.size.height*2.3
+            pipeGap = player.size.height*2.2
         }
         if(score >= 21 && score <= 30){
             pipeGap = player.size.height*2.1
