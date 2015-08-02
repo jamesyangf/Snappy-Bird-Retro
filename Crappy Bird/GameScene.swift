@@ -54,6 +54,9 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     var score = 0
     var scoreLabel = SKLabelNode()
     
+    //tapImage
+    var tapImage = SKSpriteNode()
+    
     //Sound Features
     var playerFlap = SKAction.playSoundFileNamed("felpudoVoa.mp3", waitForCompletion: false)
     var playerHit = SKAction.playSoundFileNamed("felpudoHit.mp3", waitForCompletion: false)
@@ -64,6 +67,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         
         physicsWorld.contactDelegate = self
+        physicsWorld.gravity = CGVector(dx: 0.0, dy: -12.0)
         self.addChild(movingObject)
         
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
@@ -73,7 +77,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         settingPlayer()
         setUpScore()
         setUpHighScore()
-        
+        settingUpTapImage()
         
         runAction(SKAction.repeatActionForever(SKAction.sequence(
             [SKAction.runBlock(addingPipes),
@@ -113,6 +117,17 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         }
     }
     
+    func settingUpTapImage(){
+        
+        var tapTexture = SKTexture(imageNamed: "flappyTap")
+        tapImage = SKSpriteNode(texture: tapTexture)
+        
+        tapImage.position = CGPoint(x: player.position.x + 90, y: player.position.y - 30)
+        tapImage.setScale(1.6)
+        addChild(tapImage)
+        
+        
+    }
     
     
     func settingPlayer(){
@@ -201,11 +216,11 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     func setUpScore(){
         
         // Post Score to game
-        scoreLabel.fontName = "Verdana"
+        scoreLabel.fontName = "jabjai"
         scoreLabel.fontSize = 50
         scoreLabel.text = "0"
         scoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - self.frame.size.height/4)
-        scoreLabel.alpha=0.7
+        //scoreLabel.alpha=0
         scoreLabel.zPosition=9
         self.addChild(scoreLabel)
     }
@@ -214,11 +229,11 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         // Post Score to game
         highScore = theDefault.integerForKey("highscore")
-        highScoreLabel.fontName = "Verdana"
+        highScoreLabel.fontName = "jabjai"
         highScoreLabel.fontSize = 50
         highScoreLabel.text = "\(highScore)"
         highScoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - self.frame.size.height/7)
-        highScoreLabel.alpha=0.7
+        //highScoreLabel.alpha=0.7
         highScoreLabel.zPosition=9
         self.addChild(highScoreLabel)
     }
@@ -232,13 +247,15 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             if gameOver{
                 touch.view.userInteractionEnabled = false
             }else{
+                touch.view.userInteractionEnabled = true
                 start = true
+                tapImage.removeFromParent()
                 player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.height/3)
                 player.physicsBody?.dynamic = true
                 player.physicsBody?.allowsRotation = false
             
                 player.physicsBody?.velocity = CGVectorMake(0, 0)
-                player.physicsBody?.applyImpulse(CGVectorMake(0, 40))
+                player.physicsBody?.applyImpulse(CGVectorMake(0, 60))
             
                 //player BitMask
                 player.physicsBody?.categoryBitMask = BitMasks.playerCategory

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		440A32491B6E92FC006A2F48 /* jabjai_heavy.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 440A32481B6E92F2006A2F48 /* jabjai_heavy.TTF */; };
+		440A324B1B6E9CAD006A2F48 /* MainMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = 440A324A1B6E9CAD006A2F48 /* MainMenu.sks */; };
 		44B3EE031B6DFB7E00CB9421 /* felpudoFly10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B3EDF71B6DFB7E00CB9421 /* felpudoFly10@2x.png */; };
 		44B3EE041B6DFB7E00CB9421 /* felpudoFly11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B3EDF81B6DFB7E00CB9421 /* felpudoFly11@2x.png */; };
 		44B3EE051B6DFB7E00CB9421 /* felpudoFly12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44B3EDF91B6DFB7E00CB9421 /* felpudoFly12@2x.png */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		440A32481B6E92F2006A2F48 /* jabjai_heavy.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = jabjai_heavy.TTF; sourceTree = "<group>"; };
+		440A324A1B6E9CAD006A2F48 /* MainMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenu.sks; sourceTree = "<group>"; };
 		44B3EDF71B6DFB7E00CB9421 /* felpudoFly10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly10@2x.png"; sourceTree = "<group>"; };
 		44B3EDF81B6DFB7E00CB9421 /* felpudoFly11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly11@2x.png"; sourceTree = "<group>"; };
 		44B3EDF91B6DFB7E00CB9421 /* felpudoFly12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly12@2x.png"; sourceTree = "<group>"; };
@@ -140,6 +144,7 @@
 				7634C0751B6D4DE40016332B /* GameScene.sks */,
 				7634C0771B6D4DE40016332B /* GameScene.swift */,
 				7634C0B91B6D98400016332B /* MainMenu.swift */,
+				440A324A1B6E9CAD006A2F48 /* MainMenu.sks */,
 				7634C0791B6D4DE40016332B /* GameViewController.swift */,
 				7634C07B1B6D4DE40016332B /* Main.storyboard */,
 				7634C07E1B6D4DE40016332B /* Images.xcassets */,
@@ -153,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				7634C0721B6D4DE40016332B /* Info.plist */,
+				440A32481B6E92F2006A2F48 /* jabjai_heavy.TTF */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -265,8 +271,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				440A32491B6E92FC006A2F48 /* jabjai_heavy.TTF in Resources */,
 				44B3EE071B6DFB7E00CB9421 /* felpudoFly2@2x.png in Resources */,
 				44B3EE0B1B6DFB7E00CB9421 /* felpudoFly6@2x.png in Resources */,
+				440A324B1B6E9CAD006A2F48 /* MainMenu.sks in Resources */,
 				44B3EE091B6DFB7E00CB9421 /* felpudoFly4@2x.png in Resources */,
 				44B3EE041B6DFB7E00CB9421 /* felpudoFly11@2x.png in Resources */,
 				44B3EE0C1B6DFB7E00CB9421 /* felpudoFly7@2x.png in Resources */,
