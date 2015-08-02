@@ -2,12 +2,13 @@
 //  GameViewController.swift
 //  Crappy Bird
 //
-//  Created by Amy Yang on 8/1/15.
+//  Created by James Yang on 8/1/15.
 //  Copyright (c) 2015 James Yang. All rights reserved.
 //
 
 import UIKit
 import SpriteKit
+import AVFoundation
 
 extension SKNode {
     class func unarchiveFromFile(file : String) -> SKNode? {
@@ -27,6 +28,16 @@ extension SKNode {
 
 class GameViewController: UIViewController {
 
+    var player:AVAudioPlayer = AVAudioPlayer ()
+    lazy var backgroundMusic: AVAudioPlayer = {
+        let url = NSBundle.mainBundle().URLForResource("music",withExtension: "mp3")
+        let player = AVAudioPlayer(contentsOfURL: url, error:nil)
+        player.numberOfLoops = -1
+        player.volume=0.35
+        return player
+        }()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +46,7 @@ class GameViewController: UIViewController {
             let skView = self.view as! SKView
             skView.showsFPS = true
             skView.showsNodeCount = true
+            skView.showsPhysics = true
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true

@@ -15,6 +15,23 @@
 		7634C07F1B6D4DE40016332B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7634C07E1B6D4DE40016332B /* Images.xcassets */; };
 		7634C0821B6D4DE40016332B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7634C0801B6D4DE40016332B /* LaunchScreen.xib */; };
 		7634C08E1B6D4DE40016332B /* Crappy_BirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7634C08D1B6D4DE40016332B /* Crappy_BirdTests.swift */; };
+		7634C0A41B6D61A90016332B /* felpudoFly10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7634C0981B6D61A90016332B /* felpudoFly10@2x.png */; };
+		7634C0A51B6D61A90016332B /* felpudoFly11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7634C0991B6D61A90016332B /* felpudoFly11@2x.png */; };
+		7634C0A61B6D61A90016332B /* felpudoFly12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7634C09A1B6D61A90016332B /* felpudoFly12@2x.png */; };
+		7634C0A71B6D61A90016332B /* felpudoFly1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7634C09B1B6D61A90016332B /* felpudoFly1@2x.png */; };
+		7634C0A81B6D61A90016332B /* felpudoFly2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7634C09C1B6D61A90016332B /* felpudoFly2@2x.png */; };
+		7634C0A91B6D61A90016332B /* felpudoFly3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7634C09D1B6D61A90016332B /* felpudoFly3@2x.png */; };
+		7634C0AA1B6D61A90016332B /* felpudoFly4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7634C09E1B6D61A90016332B /* felpudoFly4@2x.png */; };
+		7634C0AB1B6D61A90016332B /* felpudoFly5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7634C09F1B6D61A90016332B /* felpudoFly5@2x.png */; };
+		7634C0AC1B6D61A90016332B /* felpudoFly6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7634C0A01B6D61A90016332B /* felpudoFly6@2x.png */; };
+		7634C0AD1B6D61A90016332B /* felpudoFly7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7634C0A11B6D61A90016332B /* felpudoFly7@2x.png */; };
+		7634C0AE1B6D61A90016332B /* felpudoFly8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7634C0A21B6D61A90016332B /* felpudoFly8@2x.png */; };
+		7634C0AF1B6D61A90016332B /* felpudoFly9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7634C0A31B6D61A90016332B /* felpudoFly9@2x.png */; };
+		7634C0B51B6D93210016332B /* felpudoHit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7634C0B11B6D93210016332B /* felpudoHit.mp3 */; };
+		7634C0B61B6D93210016332B /* felpudoVoa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7634C0B21B6D93210016332B /* felpudoVoa.mp3 */; };
+		7634C0B71B6D93210016332B /* nota1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7634C0B31B6D93210016332B /* nota1.mp3 */; };
+		7634C0B81B6D93210016332B /* pena@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7634C0B41B6D93210016332B /* pena@2x.png */; };
+		7634C0BA1B6D98400016332B /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7634C0B91B6D98400016332B /* MainMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +57,23 @@
 		7634C0871B6D4DE40016332B /* Crappy BirdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Crappy BirdTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7634C08C1B6D4DE40016332B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7634C08D1B6D4DE40016332B /* Crappy_BirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crappy_BirdTests.swift; sourceTree = "<group>"; };
+		7634C0981B6D61A90016332B /* felpudoFly10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly10@2x.png"; sourceTree = "<group>"; };
+		7634C0991B6D61A90016332B /* felpudoFly11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly11@2x.png"; sourceTree = "<group>"; };
+		7634C09A1B6D61A90016332B /* felpudoFly12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly12@2x.png"; sourceTree = "<group>"; };
+		7634C09B1B6D61A90016332B /* felpudoFly1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly1@2x.png"; sourceTree = "<group>"; };
+		7634C09C1B6D61A90016332B /* felpudoFly2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly2@2x.png"; sourceTree = "<group>"; };
+		7634C09D1B6D61A90016332B /* felpudoFly3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly3@2x.png"; sourceTree = "<group>"; };
+		7634C09E1B6D61A90016332B /* felpudoFly4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly4@2x.png"; sourceTree = "<group>"; };
+		7634C09F1B6D61A90016332B /* felpudoFly5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly5@2x.png"; sourceTree = "<group>"; };
+		7634C0A01B6D61A90016332B /* felpudoFly6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly6@2x.png"; sourceTree = "<group>"; };
+		7634C0A11B6D61A90016332B /* felpudoFly7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly7@2x.png"; sourceTree = "<group>"; };
+		7634C0A21B6D61A90016332B /* felpudoFly8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly8@2x.png"; sourceTree = "<group>"; };
+		7634C0A31B6D61A90016332B /* felpudoFly9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "felpudoFly9@2x.png"; sourceTree = "<group>"; };
+		7634C0B11B6D93210016332B /* felpudoHit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = felpudoHit.mp3; sourceTree = "<group>"; };
+		7634C0B21B6D93210016332B /* felpudoVoa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = felpudoVoa.mp3; sourceTree = "<group>"; };
+		7634C0B31B6D93210016332B /* nota1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nota1.mp3; sourceTree = "<group>"; };
+		7634C0B41B6D93210016332B /* pena@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pena@2x.png"; sourceTree = "<group>"; };
+		7634C0B91B6D98400016332B /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +115,12 @@
 		7634C0701B6D4DE40016332B /* Crappy Bird */ = {
 			isa = PBXGroup;
 			children = (
+				7634C0B01B6D93210016332B /* FlappyResources */,
+				7634C0971B6D61A90016332B /* player */,
 				7634C0731B6D4DE40016332B /* AppDelegate.swift */,
 				7634C0751B6D4DE40016332B /* GameScene.sks */,
 				7634C0771B6D4DE40016332B /* GameScene.swift */,
+				7634C0B91B6D98400016332B /* MainMenu.swift */,
 				7634C0791B6D4DE40016332B /* GameViewController.swift */,
 				7634C07B1B6D4DE40016332B /* Main.storyboard */,
 				7634C07E1B6D4DE40016332B /* Images.xcassets */,
@@ -116,6 +153,37 @@
 				7634C08C1B6D4DE40016332B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7634C0971B6D61A90016332B /* player */ = {
+			isa = PBXGroup;
+			children = (
+				7634C0981B6D61A90016332B /* felpudoFly10@2x.png */,
+				7634C0991B6D61A90016332B /* felpudoFly11@2x.png */,
+				7634C09A1B6D61A90016332B /* felpudoFly12@2x.png */,
+				7634C09B1B6D61A90016332B /* felpudoFly1@2x.png */,
+				7634C09C1B6D61A90016332B /* felpudoFly2@2x.png */,
+				7634C09D1B6D61A90016332B /* felpudoFly3@2x.png */,
+				7634C09E1B6D61A90016332B /* felpudoFly4@2x.png */,
+				7634C09F1B6D61A90016332B /* felpudoFly5@2x.png */,
+				7634C0A01B6D61A90016332B /* felpudoFly6@2x.png */,
+				7634C0A11B6D61A90016332B /* felpudoFly7@2x.png */,
+				7634C0A21B6D61A90016332B /* felpudoFly8@2x.png */,
+				7634C0A31B6D61A90016332B /* felpudoFly9@2x.png */,
+			);
+			name = player;
+			path = felpudoFly;
+			sourceTree = "<group>";
+		};
+		7634C0B01B6D93210016332B /* FlappyResources */ = {
+			isa = PBXGroup;
+			children = (
+				7634C0B11B6D93210016332B /* felpudoHit.mp3 */,
+				7634C0B21B6D93210016332B /* felpudoVoa.mp3 */,
+				7634C0B31B6D93210016332B /* nota1.mp3 */,
+				7634C0B41B6D93210016332B /* pena@2x.png */,
+			);
+			path = FlappyResources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,10 +266,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7634C0B71B6D93210016332B /* nota1.mp3 in Resources */,
+				7634C0AC1B6D61A90016332B /* felpudoFly6@2x.png in Resources */,
+				7634C0A61B6D61A90016332B /* felpudoFly12@2x.png in Resources */,
+				7634C0AF1B6D61A90016332B /* felpudoFly9@2x.png in Resources */,
 				7634C0821B6D4DE40016332B /* LaunchScreen.xib in Resources */,
+				7634C0A71B6D61A90016332B /* felpudoFly1@2x.png in Resources */,
+				7634C0AA1B6D61A90016332B /* felpudoFly4@2x.png in Resources */,
 				7634C07F1B6D4DE40016332B /* Images.xcassets in Resources */,
+				7634C0AD1B6D61A90016332B /* felpudoFly7@2x.png in Resources */,
+				7634C0A81B6D61A90016332B /* felpudoFly2@2x.png in Resources */,
+				7634C0B61B6D93210016332B /* felpudoVoa.mp3 in Resources */,
+				7634C0AB1B6D61A90016332B /* felpudoFly5@2x.png in Resources */,
+				7634C0B81B6D93210016332B /* pena@2x.png in Resources */,
+				7634C0A51B6D61A90016332B /* felpudoFly11@2x.png in Resources */,
 				7634C0761B6D4DE40016332B /* GameScene.sks in Resources */,
+				7634C0AE1B6D61A90016332B /* felpudoFly8@2x.png in Resources */,
+				7634C0A41B6D61A90016332B /* felpudoFly10@2x.png in Resources */,
+				7634C0A91B6D61A90016332B /* felpudoFly3@2x.png in Resources */,
 				7634C07D1B6D4DE40016332B /* Main.storyboard in Resources */,
+				7634C0B51B6D93210016332B /* felpudoHit.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +306,7 @@
 				7634C0781B6D4DE40016332B /* GameScene.swift in Sources */,
 				7634C07A1B6D4DE40016332B /* GameViewController.swift in Sources */,
 				7634C0741B6D4DE40016332B /* AppDelegate.swift in Sources */,
+				7634C0BA1B6D98400016332B /* MainMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Crappy Bird/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -358,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Crappy Bird/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -417,6 +504,7 @@
 				7634C0931B6D4DE40016332B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7634C0941B6D4DE40016332B /* Build configuration list for PBXNativeTarget "Crappy BirdTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +513,7 @@
 				7634C0961B6D4DE40016332B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
