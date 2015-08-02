@@ -25,6 +25,7 @@ enum Layer: CGFloat {
     case Pipe //1
     case Ground //2
     case Player  //3
+    case Gui //4
 }
 
 
@@ -54,12 +55,16 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     // Game over if bird hits obsticals
     var gameOver = false
+    //Game over label
+    var gameOverLabel = SKLabelNode()
+
     
     //pipe Gap
     var pipeGap = CGFloat()
     
-    //begin game
+    //game states
     var start = false
+    var playAgain = false
     
     //scoring
     var highScore = 0
@@ -94,6 +99,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         setUpScore()
         setUpHighScore()
         settingUpTapImage()
+        
         
         runAction(SKAction.repeatActionForever(SKAction.sequence(
             [SKAction.runBlock(addingPipes),
@@ -293,33 +299,38 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
         //player gets physics body
-        
         if let touch = touches.first as? UITouch {
-            if gameOver{
-                touch.view.userInteractionEnabled = false
+            if playAgain { //if playAgain is true and you touch the screen
+                //new scene
+                var transition = SKTransition.crossFadeWithDuration(1)
+                var newScene = GameScene(size: self.size)
+                newScene.scaleMode = .AspectFill
+                self.view?.presentScene(newScene, transition: transition)
             }else{
-                touch.view.userInteractionEnabled = true
-                start = true
-                tapImage.removeFromParent()
-                player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.height/3)
-                player.physicsBody?.dynamic = true
-                player.physicsBody?.allowsRotation = false
-            
-                player.physicsBody?.velocity = CGVectorMake(0, 0)
-                player.physicsBody?.applyImpulse(CGVectorMake(0, 9))
-            
-                //player BitMask
-                player.physicsBody?.categoryBitMask = BitMasks.playerCategory
-                player.physicsBody?.contactTestBitMask = BitMasks.pipeCategory
-                player.physicsBody?.contactTestBitMask = BitMasks.gapCategory
-                player.physicsBody?.contactTestBitMask = BitMasks.bottomCategory
-                player.physicsBody?.collisionBitMask = BitMasks.noneCategory//the player does not collide with anything
-                self.runAction(playerFlap)
-                self.createParticles()
+                if gameOver{
+                    player.physicsBody?.applyImpulse(CGVectorMake(0, 0))
+                }else{
+                    start = true
+                    tapImage.removeFromParent()
+                    player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.height/3)
+                    player.physicsBody?.dynamic = true
+                    player.physicsBody?.allowsRotation = false
+                
+                    player.physicsBody?.velocity = CGVectorMake(0, 0)
+                    player.physicsBody?.applyImpulse(CGVectorMake(0, 9))
+                
+                    //player BitMask
+                    player.physicsBody?.categoryBitMask = BitMasks.playerCategory
+                    player.physicsBody?.contactTestBitMask = BitMasks.pipeCategory
+                    player.physicsBody?.contactTestBitMask = BitMasks.gapCategory
+                    player.physicsBody?.contactTestBitMask = BitMasks.bottomCategory
+                    player.physicsBody?.collisionBitMask = BitMasks.noneCategory//the player does not collide with anything
+                    self.runAction(playerFlap)
+                    self.createParticles()
 
+                }
             }
         }
-        
         
     }
     
@@ -351,22 +362,39 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         }else if firstBody.categoryBitMask == BitMasks.playerCategory && secondBody.categoryBitMask ==
             
             BitMasks.pipeCategory{
-            println("player hit log")
             if !gameOver {
                 self.runAction(playerHit)
                 gameOver = true
                 movingObject.speed = 0 //everyting stops moving
+                self.addChild(gameOverLabel)
             }
-
         }else if firstBody.categoryBitMask == BitMasks.playerCategory && secondBody.categoryBitMask == BitMasks.bottomCategory{
             if !gameOver {
                 self.runAction(playerHit)
                 gameOver = true
                 movingObject.speed = 0 //everyting stops moving
+                self.addChild(gameOverLabel)
             }
 
         }
     }
+    
+    
+    func textoGameover()
+    {
+        // Post Game Over
+        gameOverLabel.fontName = "jabjai"
+        gameOverLabel.fontSize = 30
+        gameOverLabel.fontColor = UIColor.blackColor()
+        gameOverLabel.zPosition = Layer.Gui.rawValue
+        gameOverLabel.text = "Game Over!"
+        gameOverLabel.position = CGPointMake(self.size.width/2, self.frame.size.height/2-70)
+        playAgain=true
+        
+    }
+
+    
+    
     //the rotating function, if the player's velocity is negative, the player will rotate in neg vice versa
     //player's rotation is affected by its velocty every way
     func rotation(min: CGFloat, max: CGFloat, value: CGFloat) -> CGFloat{
@@ -393,6 +421,12 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             player.zRotation = self.rotation(-1, max: 0.5, value: num * 0.001)
         }
         
+        if gameOver {
+            // Post game over
+            var timerGameOver = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("textoGameover"),userInfo:nil, repeats: false)
+        }
+
+
         // Making the game harder
         if(score >= 10 && score <= 20){
             pipeGap = player.size.height*2.3
@@ -401,12 +435,12 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             pipeGap = player.size.height*2.1
         }
         if(score >= 31 && score <= 50){
-            pipeGap = player.size.height*1.9
+            pipeGap = player.size.height*2.0
         }
         if score >= 50{
             //pipe actions moving up and down
-            pipeGap = player.size.height*1.9
-            var moveUp = SKAction.moveToY(pipeGap , duration: NSTimeInterval(21.0))
+            pipeGap = player.size.height*2.2
+            var moveUp = SKAction.moveToY(pipeGap , duration: NSTimeInterval(19.0))
             var moveDown = SKAction.moveToY(-pipeGap , duration: NSTimeInterval(3.0))
             bottomPipe.runAction(SKAction.repeatActionForever(SKAction.sequence([moveUp,moveDown])))
         }
@@ -416,7 +450,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         if score > theDefault.integerForKey("highscore") {
             theDefault.setInteger(score, forKey: "highscore")
             theDefault.synchronize()
-             highScoreLabel.text = "\(score)"
+            highScoreLabel.text = "\(score)"
         }
         
         if player.position.y <  0 - player.size.height {
