@@ -71,9 +71,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     // Game over if bird hits obsticals
     var gameOver = false
+    //GameOver stuff
     var gameOverNode = SKSpriteNode(imageNamed: "gameover")
-    //Game over label
-    var gameOverLabel = SKLabelNode()
     var gameOverScore = 0
     var gameOverScoreLabel = SKLabelNode()
     var gameOverHighScoreLabel = SKLabelNode()
@@ -287,14 +286,13 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     func setUpHighScore(){
         
-        // Post Score to game
+        // Post HighScore to game
         highScore = theDefault.integerForKey("highscore")
         highScoreLabel.fontName = "jabjai"
         highScoreLabel.fontSize = 50
         highScoreLabel.text = "\(highScore)"
         highScoreLabel.fontColor = UIColor.blackColor()
         highScoreLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - self.frame.size.height/7)
-        //highScoreLabel.alpha=0.7
         highScoreLabel.zPosition=9
         self.addChild(highScoreLabel)
     }
@@ -305,9 +303,12 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         gameOverScoreLabel.text = "0"
         gameOverScoreLabel.fontColor = UIColor.blackColor()
         gameOverScoreLabel.position = CGPointMake(CGRectGetMidX(self.frame) + 50, self.frame.size.height/2.46)
-        //scoreLabel.alpha=0
-        gameOverScoreLabel.zPosition=9
-        //self.addChild(gameOverScoreLabel)
+        gameOverScoreLabel.zPosition = Layer.Gui.rawValue
+        gameOverScoreLabel.setScale(0.4)
+        gameOverScoreLabel.runAction(SKAction.sequence([SKAction.scaleTo(0.8, duration:NSTimeInterval(0.4)), SKAction.scaleTo(0.6, duration:NSTimeInterval(0.4))]))
+        gameOverScoreLabel.runAction(SKAction.sequence([SKAction.runBlock(incrementScore)]))
+        gameOverScoreLabel.text = "\(gameOverScore)"
+
         
     }
     
@@ -317,7 +318,10 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         gameOverHighScoreLabel.text = "\(highScore)"
         gameOverHighScoreLabel.fontColor = UIColor.blackColor()
         gameOverHighScoreLabel.position = CGPointMake(CGRectGetMidX(self.frame) + 50, self.frame.size.height/1.85)
-        gameOverHighScoreLabel.zPosition=9
+        gameOverHighScoreLabel.zPosition = Layer.Gui.rawValue
+        gameOverHighScoreLabel.setScale(0.4)
+        gameOverHighScoreLabel.runAction(SKAction.sequence([SKAction.scaleTo(0.8, duration:NSTimeInterval(0.4)), SKAction.scaleTo(0.6, duration:NSTimeInterval(0.4))]))
+        gameOverHighScoreLabel.text = "\(highScore)"
 
         
     }
@@ -398,10 +402,9 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             scoreLabel.runAction(SKAction.sequence([SKAction.scaleTo(1.5, duration:NSTimeInterval(0.1)), SKAction.scaleTo(1.0, duration:NSTimeInterval(0.1))]))
             secondBody.node?.removeFromParent() //remove gapCategory
         
-        }else if firstBody.categoryBitMask == BitMasks.playerCategory && secondBody.categoryBitMask ==
-            
-            BitMasks.pipeCategory{
+        }else if firstBody.categoryBitMask == BitMasks.playerCategory && secondBody.categoryBitMask == BitMasks.pipeCategory{
             if !gameOver {
+                //self.flashyBackGround()
                 self.runAction(playerHit)
                 gameOver = true
                 movingObject.speed = 0 //everyting stops moving
@@ -413,6 +416,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             }
         }else if firstBody.categoryBitMask == BitMasks.playerCategory && secondBody.categoryBitMask == BitMasks.bottomCategory{
             if !gameOver {
+                //self.flashyBackGround()
                 self.runAction(playerHit)
                 gameOver = true
                 movingObject.speed = 0 //everyting stops moving
@@ -430,11 +434,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     func textoGameover()
     {
         // Post Game Over
-//        gameOverLabel.fontName = "jabjai"
-//        gameOverLabel.fontSize = 30
-//        gameOverLabel.fontColor = UIColor.blackColor()
-//        gameOverLabel.zPosition = Layer.Gui.rawValue
-//        gameOverLabel.text = "Game Over!"
         gameOverNode.zPosition = Layer.Gui.rawValue
         gameOverNode.setScale(0.4)
         gameOverNode.runAction( SKAction.scaleTo(0.9, duration:NSTimeInterval(0.2)))
@@ -442,16 +441,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         setUpGameOverScore()
         setUpGameOverHighScore()
-        gameOverScoreLabel.zPosition = 30
-        gameOverScoreLabel.setScale(0.4)
-        gameOverScoreLabel.runAction(SKAction.sequence([SKAction.scaleTo(0.8, duration:NSTimeInterval(0.4)), SKAction.scaleTo(0.6, duration:NSTimeInterval(0.4))]))
-        gameOverScoreLabel.runAction(SKAction.sequence([SKAction.runBlock(incrementScore)]))
-        gameOverScoreLabel.text = "\(gameOverScore)"
         
-        gameOverHighScoreLabel.zPosition = 30
-        gameOverHighScoreLabel.setScale(0.4)
-        gameOverHighScoreLabel.runAction(SKAction.sequence([SKAction.scaleTo(0.8, duration:NSTimeInterval(0.4)), SKAction.scaleTo(0.6, duration:NSTimeInterval(0.4))]))
-        gameOverHighScoreLabel.text = "\(highScore)"
         
         playAgain=true
         
@@ -522,6 +512,35 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         }
         
     }
+    
+    
+//    // Flash game over color
+//    func flashyBackGround()
+//    {
+//        
+//        self.removeActionForKey("flash")
+//        var duration = SKAction.waitForDuration(0.05)
+//        var bgWhite = SKAction.runBlock({() in self.setBgWhite()})
+//        var bgRed = SKAction.runBlock({() in self.setBgRed()})
+//        var bgNormal = SKAction.runBlock({() in self.setBgNormal()})
+//        
+//        var sequenceOfActions = SKAction.sequence([bgWhite,duration,bgRed,duration,bgNormal])
+//        var repeatSequence = SKAction.repeatAction(sequenceOfActions, count: 4);
+//        self.runAction(repeatSequence, withKey: "flash")
+//    }
+//    func setBgRed()
+//    {
+//        self.backgroundColor = UIColor.redColor()
+//    }
+//    func setBgWhite()
+//    {
+//        self.backgroundColor = UIColor.whiteColor()
+//    }
+//    func setBgNormal()
+//    {
+//        self.backgroundColor = UIColor.blackColor()
+//    }
+
     
     //creating the particle for player
     func createParticles()
