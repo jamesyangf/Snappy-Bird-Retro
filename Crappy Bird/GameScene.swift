@@ -53,12 +53,6 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     var bottomPipe = SKSpriteNode()
     var topPipe = SKSpriteNode()
     
-    // Game over if bird hits obsticals
-    var gameOver = false
-    //Game over label
-    var gameOverLabel = SKLabelNode()
-
-    
     //pipe Gap
     var pipeGap = CGFloat()
     
@@ -74,6 +68,16 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     //tapImage
     var tapImage = SKSpriteNode()
+    
+    // Game over if bird hits obsticals
+    var gameOver = false
+    var gameOverNode = SKSpriteNode(imageNamed: "gameover")
+    //Game over label
+    var gameOverLabel = SKLabelNode()
+    var gameOverScore = 0
+    var gameOverScoreLabel = SKLabelNode()
+    var gameOverHighScoreLabel = SKLabelNode()
+    
     
     //Sound Features
     var playerFlap = SKAction.playSoundFileNamed("felpudoVoa.mp3", waitForCompletion: false)
@@ -294,18 +298,45 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         highScoreLabel.zPosition=9
         self.addChild(highScoreLabel)
     }
+    
+    func setUpGameOverScore(){
+        gameOverScoreLabel.fontName = "jabjai"
+        gameOverScoreLabel.fontSize = 50
+        gameOverScoreLabel.text = "0"
+        gameOverScoreLabel.fontColor = UIColor.blackColor()
+        gameOverScoreLabel.position = CGPointMake(CGRectGetMidX(self.frame) + 50, self.frame.size.height/2.46)
+        //scoreLabel.alpha=0
+        gameOverScoreLabel.zPosition=9
+        //self.addChild(gameOverScoreLabel)
+        
+    }
+    
+    func setUpGameOverHighScore(){
+        gameOverHighScoreLabel.fontName = "jabjai"
+        gameOverHighScoreLabel.fontSize = 50
+        gameOverHighScoreLabel.text = "\(highScore)"
+        gameOverHighScoreLabel.fontColor = UIColor.blackColor()
+        gameOverHighScoreLabel.position = CGPointMake(CGRectGetMidX(self.frame) + 50, self.frame.size.height/1.85)
+        gameOverHighScoreLabel.zPosition=9
 
+        
+    }
+
+
+    func goToGameScene(){
+        //new scene
+        var transition = SKTransition.crossFadeWithDuration(1)
+        var newScene = GameScene(size: self.size)
+        newScene.scaleMode = .AspectFill
+        self.view?.presentScene(newScene, transition: transition)
+    }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
         //player gets physics body
         if let touch = touches.first as? UITouch {
             if playAgain { //if playAgain is true and you touch the screen
-                //new scene
-                var transition = SKTransition.crossFadeWithDuration(1)
-                var newScene = GameScene(size: self.size)
-                newScene.scaleMode = .AspectFill
-                self.view?.presentScene(newScene, transition: transition)
+                goToGameScene()
             }else{
                 if gameOver{
                     player.physicsBody?.applyImpulse(CGVectorMake(0, 0))
@@ -332,6 +363,14 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             }
         }
         
+    }
+    
+    func incrementScore(){
+        if gameOverScore < score{
+            gameOverScore++
+        }else{
+            gameOverScore = score
+        }
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -366,14 +405,22 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
                 self.runAction(playerHit)
                 gameOver = true
                 movingObject.speed = 0 //everyting stops moving
-                self.addChild(gameOverLabel)
+                scoreLabel.removeFromParent()
+                highScoreLabel.removeFromParent()
+                self.addChild(gameOverHighScoreLabel)
+                self.addChild(gameOverScoreLabel)
+                self.addChild(gameOverNode)
             }
         }else if firstBody.categoryBitMask == BitMasks.playerCategory && secondBody.categoryBitMask == BitMasks.bottomCategory{
             if !gameOver {
                 self.runAction(playerHit)
                 gameOver = true
                 movingObject.speed = 0 //everyting stops moving
-                self.addChild(gameOverLabel)
+                scoreLabel.removeFromParent()
+                highScoreLabel.removeFromParent()
+                self.addChild(gameOverHighScoreLabel)
+                self.addChild(gameOverScoreLabel)
+                self.addChild(gameOverNode)
             }
 
         }
@@ -383,12 +430,29 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     func textoGameover()
     {
         // Post Game Over
-        gameOverLabel.fontName = "jabjai"
-        gameOverLabel.fontSize = 30
-        gameOverLabel.fontColor = UIColor.blackColor()
-        gameOverLabel.zPosition = Layer.Gui.rawValue
-        gameOverLabel.text = "Game Over!"
-        gameOverLabel.position = CGPointMake(self.size.width/2, self.frame.size.height/2-70)
+//        gameOverLabel.fontName = "jabjai"
+//        gameOverLabel.fontSize = 30
+//        gameOverLabel.fontColor = UIColor.blackColor()
+//        gameOverLabel.zPosition = Layer.Gui.rawValue
+//        gameOverLabel.text = "Game Over!"
+        gameOverNode.zPosition = Layer.Gui.rawValue
+        gameOverNode.setScale(0.4)
+        gameOverNode.runAction( SKAction.scaleTo(0.9, duration:NSTimeInterval(0.2)))
+        gameOverNode.position = CGPointMake(self.size.width/2, self.frame.size.height/2)
+        
+        setUpGameOverScore()
+        setUpGameOverHighScore()
+        gameOverScoreLabel.zPosition = 30
+        gameOverScoreLabel.setScale(0.4)
+        gameOverScoreLabel.runAction(SKAction.sequence([SKAction.scaleTo(0.8, duration:NSTimeInterval(0.4)), SKAction.scaleTo(0.6, duration:NSTimeInterval(0.4))]))
+        gameOverScoreLabel.runAction(SKAction.sequence([SKAction.runBlock(incrementScore)]))
+        gameOverScoreLabel.text = "\(gameOverScore)"
+        
+        gameOverHighScoreLabel.zPosition = 30
+        gameOverHighScoreLabel.setScale(0.4)
+        gameOverHighScoreLabel.runAction(SKAction.sequence([SKAction.scaleTo(0.8, duration:NSTimeInterval(0.4)), SKAction.scaleTo(0.6, duration:NSTimeInterval(0.4))]))
+        gameOverHighScoreLabel.text = "\(highScore)"
+        
         playAgain=true
         
     }
@@ -456,6 +520,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         if player.position.y <  0 - player.size.height {
             player.removeFromParent()
         }
+        
     }
     
     //creating the particle for player

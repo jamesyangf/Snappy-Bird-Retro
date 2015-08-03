@@ -13,6 +13,7 @@
 		440A325B1B6EAC91006A2F48 /* frame-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 440A32571B6EAC91006A2F48 /* frame-2.png */; };
 		440A325C1B6EAC91006A2F48 /* frame-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 440A32581B6EAC91006A2F48 /* frame-3.png */; };
 		440A325D1B6EAC91006A2F48 /* frame-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 440A32591B6EAC91006A2F48 /* frame-4.png */; };
+		440A325F1B6F0239006A2F48 /* CGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440A325E1B6F0239006A2F48 /* CGButton.swift */; };
 		7634C0741B6D4DE40016332B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7634C0731B6D4DE40016332B /* AppDelegate.swift */; };
 		7634C0761B6D4DE40016332B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7634C0751B6D4DE40016332B /* GameScene.sks */; };
 		7634C0781B6D4DE40016332B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7634C0771B6D4DE40016332B /* GameScene.swift */; };
@@ -45,6 +46,7 @@
 		440A32571B6EAC91006A2F48 /* frame-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-2.png"; sourceTree = "<group>"; };
 		440A32581B6EAC91006A2F48 /* frame-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-3.png"; sourceTree = "<group>"; };
 		440A32591B6EAC91006A2F48 /* frame-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-4.png"; sourceTree = "<group>"; };
+		440A325E1B6F0239006A2F48 /* CGButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGButton.swift; sourceTree = "<group>"; };
 		7634C06E1B6D4DE40016332B /* Snappy Bird Retro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snappy Bird Retro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7634C0721B6D4DE40016332B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7634C0731B6D4DE40016332B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				7634C0731B6D4DE40016332B /* AppDelegate.swift */,
 				7634C0751B6D4DE40016332B /* GameScene.sks */,
 				7634C0771B6D4DE40016332B /* GameScene.swift */,
+				440A325E1B6F0239006A2F48 /* CGButton.swift */,
 				7634C0B91B6D98400016332B /* MainMenu.swift */,
 				440A324A1B6E9CAD006A2F48 /* MainMenu.sks */,
 				7634C0791B6D4DE40016332B /* GameViewController.swift */,
@@ -282,6 +285,7 @@
 			files = (
 				7634C0781B6D4DE40016332B /* GameScene.swift in Sources */,
 				7634C07A1B6D4DE40016332B /* GameViewController.swift in Sources */,
+				440A325F1B6F0239006A2F48 /* CGButton.swift in Sources */,
 				7634C0741B6D4DE40016332B /* AppDelegate.swift in Sources */,
 				7634C0BA1B6D98400016332B /* MainMenu.swift in Sources */,
 			);
