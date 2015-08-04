@@ -1,13 +1,12 @@
 # Snappy-Bird-Retro
-Snappy Bird Retro on the iOS using swift and spritekit
+*Made with Swift and Spritekit*
 
-Created by James Frank Yang.
+**Created by James Frank Yang.**
 
 You may modify and redistribute this code under the following conditions:
 
-You may not sell this code, or any modification of it You must attribute the author (James Frank Yang) 
-
-If you do choose to redistribute the work or any modification of it, it must carry these same conditions
+1. You may not sell this code, or any modification of it You must attribute the author (James Frank Yang) 
+2. If you do choose to redistribute the work or any modification of it, it must carry these same conditions
 
 ## About
 
