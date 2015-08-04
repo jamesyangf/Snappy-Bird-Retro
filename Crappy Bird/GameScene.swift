@@ -15,7 +15,8 @@ struct BitMasks{
     static let pipeCategory: UInt32 = 0x1 << 1
     static let gapCategory: UInt32 = 0x1 << 2
     static let bottomCategory: UInt32 = 0x1 << 3
-    static let noneCategory: UInt32 = 0x1 << 4
+    static let coinCategory: UInt32 = 0x1 << 4
+    static let noneCategory: UInt32 = 0x1 << 5
     
 }
 
@@ -55,6 +56,10 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     
     //pipe Gap
     var pipeGap = CGFloat()
+    
+    //coins
+//    var coin = SKSpriteNode()
+//    var arrayOfCoins = [SKTexture]()
     
     //game states
     var start = false
@@ -175,8 +180,8 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         var tapTexture = SKTexture(imageNamed: "flappyTap")
         tapImage = SKSpriteNode(texture: tapTexture)
         
-        tapImage.position = CGPoint(x: player.position.x + 90, y: player.position.y - 30)
-        tapImage.setScale(1.6)
+        tapImage.position = CGPoint(x: player.position.x + 110, y: player.position.y - 30)
+        tapImage.setScale(2.5)
         addChild(tapImage)
         
         
@@ -210,6 +215,35 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         
         
     }
+//    
+//    func settingUpCoins(){
+//        var coinTexture = SKTexture(imageNamed: "coin-1")
+//        coin = SKSpriteNode(texture: coinTexture)
+//        coin.position = CGPoint(x: size.width+bottomPipe.size.width - 80, y: bottomPipe.position.y + bottomPipe.size.height/2 + pipeGap/3)
+//        coin.zPosition = Layer.Pipe.rawValue
+//        
+//        
+//        //loops through all the animation
+//        for (var i = 1; i <= 9; i++)
+//        {
+//            arrayOfCoins.append((SKTexture(imageNamed:"coin-\(i)")))
+//        }
+//        
+//        var animate = SKAction.animateWithTextures(arrayOfCoins, timePerFrame: 0.07)
+//        var makeCoinAnimate = SKAction.repeatActionForever(animate)
+//        coin.runAction(makeCoinAnimate)
+//        coin.setScale(0.2)
+//        
+//        coin.physicsBody = SKPhysicsBody(circleOfRadius: coin.size.height/2)
+//        coin.physicsBody?.dynamic = false
+//        coin.physicsBody?.categoryBitMask = BitMasks.coinCategory
+//        coin.physicsBody?.contactTestBitMask = BitMasks.playerCategory
+//        
+//        movingObject.addChild(coin)
+//
+//
+//        
+//    }
     
     
     func addingPipes(){
@@ -263,10 +297,13 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             gap.physicsBody?.contactTestBitMask = BitMasks.playerCategory
             
             
+            //coin.runAction(pipeSequence)
+            
             //add the pipes and the gape to movingObject node
             movingObject.addChild(bottomPipe)
             movingObject.addChild(topPipe)
             movingObject.addChild(gap)
+            //settingUpCoins()
         }
         
     }
@@ -505,6 +542,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
             theDefault.setInteger(score, forKey: "highscore")
             theDefault.synchronize()
             highScoreLabel.text = "\(score)"
+            highScore = score //update highscore to that score
         }
         
         if player.position.y <  0 - player.size.height {

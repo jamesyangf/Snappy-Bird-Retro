@@ -14,6 +14,16 @@
 		440A325C1B6EAC91006A2F48 /* frame-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 440A32581B6EAC91006A2F48 /* frame-3.png */; };
 		440A325D1B6EAC91006A2F48 /* frame-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 440A32591B6EAC91006A2F48 /* frame-4.png */; };
 		440A325F1B6F0239006A2F48 /* CGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440A325E1B6F0239006A2F48 /* CGButton.swift */; };
+		44F783051B7086BF008DCC28 /* coin-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F782FB1B7086BF008DCC28 /* coin-1.png */; };
+		44F783061B7086BF008DCC28 /* coin-10.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F782FC1B7086BF008DCC28 /* coin-10.png */; };
+		44F783071B7086BF008DCC28 /* coin-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F782FD1B7086BF008DCC28 /* coin-2.png */; };
+		44F783081B7086BF008DCC28 /* coin-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F782FE1B7086BF008DCC28 /* coin-3.png */; };
+		44F783091B7086BF008DCC28 /* coin-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F782FF1B7086BF008DCC28 /* coin-4.png */; };
+		44F7830A1B7086BF008DCC28 /* coin-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F783001B7086BF008DCC28 /* coin-5.png */; };
+		44F7830B1B7086BF008DCC28 /* coin-6.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F783011B7086BF008DCC28 /* coin-6.png */; };
+		44F7830C1B7086BF008DCC28 /* coin-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F783021B7086BF008DCC28 /* coin-7.png */; };
+		44F7830D1B7086BF008DCC28 /* coin-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F783031B7086BF008DCC28 /* coin-8.png */; };
+		44F7830E1B7086BF008DCC28 /* coin-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 44F783041B7086BF008DCC28 /* coin-9.png */; };
 		7634C0741B6D4DE40016332B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7634C0731B6D4DE40016332B /* AppDelegate.swift */; };
 		7634C0761B6D4DE40016332B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7634C0751B6D4DE40016332B /* GameScene.sks */; };
 		7634C0781B6D4DE40016332B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7634C0771B6D4DE40016332B /* GameScene.swift */; };
@@ -47,6 +57,16 @@
 		440A32581B6EAC91006A2F48 /* frame-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-3.png"; sourceTree = "<group>"; };
 		440A32591B6EAC91006A2F48 /* frame-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-4.png"; sourceTree = "<group>"; };
 		440A325E1B6F0239006A2F48 /* CGButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGButton.swift; sourceTree = "<group>"; };
+		44F782FB1B7086BF008DCC28 /* coin-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin-1.png"; sourceTree = "<group>"; };
+		44F782FC1B7086BF008DCC28 /* coin-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin-10.png"; sourceTree = "<group>"; };
+		44F782FD1B7086BF008DCC28 /* coin-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin-2.png"; sourceTree = "<group>"; };
+		44F782FE1B7086BF008DCC28 /* coin-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin-3.png"; sourceTree = "<group>"; };
+		44F782FF1B7086BF008DCC28 /* coin-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin-4.png"; sourceTree = "<group>"; };
+		44F783001B7086BF008DCC28 /* coin-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin-5.png"; sourceTree = "<group>"; };
+		44F783011B7086BF008DCC28 /* coin-6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin-6.png"; sourceTree = "<group>"; };
+		44F783021B7086BF008DCC28 /* coin-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin-7.png"; sourceTree = "<group>"; };
+		44F783031B7086BF008DCC28 /* coin-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin-8.png"; sourceTree = "<group>"; };
+		44F783041B7086BF008DCC28 /* coin-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin-9.png"; sourceTree = "<group>"; };
 		7634C06E1B6D4DE40016332B /* Snappy Bird Retro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snappy Bird Retro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7634C0721B6D4DE40016332B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7634C0731B6D4DE40016332B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +115,23 @@
 			path = SnappyBird;
 			sourceTree = "<group>";
 		};
+		44F782FA1B7086BF008DCC28 /* Coin */ = {
+			isa = PBXGroup;
+			children = (
+				44F782FB1B7086BF008DCC28 /* coin-1.png */,
+				44F782FC1B7086BF008DCC28 /* coin-10.png */,
+				44F782FD1B7086BF008DCC28 /* coin-2.png */,
+				44F782FE1B7086BF008DCC28 /* coin-3.png */,
+				44F782FF1B7086BF008DCC28 /* coin-4.png */,
+				44F783001B7086BF008DCC28 /* coin-5.png */,
+				44F783011B7086BF008DCC28 /* coin-6.png */,
+				44F783021B7086BF008DCC28 /* coin-7.png */,
+				44F783031B7086BF008DCC28 /* coin-8.png */,
+				44F783041B7086BF008DCC28 /* coin-9.png */,
+			);
+			path = Coin;
+			sourceTree = "<group>";
+		};
 		7634C0651B6D4DE40016332B = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +153,7 @@
 		7634C0701B6D4DE40016332B /* Snappy Bird Retro */ = {
 			isa = PBXGroup;
 			children = (
+				44F782FA1B7086BF008DCC28 /* Coin */,
 				440A32551B6EAC91006A2F48 /* SnappyBird */,
 				7634C0B01B6D93210016332B /* FlappyResources */,
 				7634C0731B6D4DE40016332B /* AppDelegate.swift */,
@@ -252,19 +290,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44F7830D1B7086BF008DCC28 /* coin-8.png in Resources */,
+				44F7830A1B7086BF008DCC28 /* coin-5.png in Resources */,
+				44F783051B7086BF008DCC28 /* coin-1.png in Resources */,
+				44F7830C1B7086BF008DCC28 /* coin-7.png in Resources */,
+				44F7830E1B7086BF008DCC28 /* coin-9.png in Resources */,
+				44F783091B7086BF008DCC28 /* coin-4.png in Resources */,
 				440A32491B6E92FC006A2F48 /* jabjai_heavy.TTF in Resources */,
 				440A324B1B6E9CAD006A2F48 /* MainMenu.sks in Resources */,
 				7634C0B71B6D93210016332B /* nota1.mp3 in Resources */,
 				7634C0821B6D4DE40016332B /* LaunchScreen.xib in Resources */,
+				44F783061B7086BF008DCC28 /* coin-10.png in Resources */,
 				440A325B1B6EAC91006A2F48 /* frame-2.png in Resources */,
 				7634C07F1B6D4DE40016332B /* Images.xcassets in Resources */,
 				440A325C1B6EAC91006A2F48 /* frame-3.png in Resources */,
 				7634C0B61B6D93210016332B /* felpudoVoa.mp3 in Resources */,
+				44F783081B7086BF008DCC28 /* coin-3.png in Resources */,
+				44F7830B1B7086BF008DCC28 /* coin-6.png in Resources */,
 				440A325A1B6EAC91006A2F48 /* frame-1.png in Resources */,
 				7634C0B81B6D93210016332B /* pena@2x.png in Resources */,
 				440A325D1B6EAC91006A2F48 /* frame-4.png in Resources */,
 				7634C0761B6D4DE40016332B /* GameScene.sks in Resources */,
 				7634C07D1B6D4DE40016332B /* Main.storyboard in Resources */,
+				44F783071B7086BF008DCC28 /* coin-2.png in Resources */,
 				7634C0B51B6D93210016332B /* felpudoHit.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
