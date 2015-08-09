@@ -364,12 +364,13 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
     }
 
 
-    func goToGameScene(){
+    func goToRestartScene(){
         //new scene
         var transition = SKTransition.crossFadeWithDuration(1)
         var newScene = GameScene(size: self.size)
         newScene.scaleMode = .AspectFill
         self.view?.presentScene(newScene, transition: transition)
+        //println("hi")
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -377,7 +378,7 @@ class GameScene: SKScene,SKPhysicsContactDelegate {
         //player gets physics body
         if let touch = touches.first as? UITouch {
             if playAgain { //if playAgain is true and you touch the screen
-                goToGameScene()
+                goToRestartScene()
             }else{
                 if gameOver{
                     player.physicsBody?.applyImpulse(CGVectorMake(0, 0))

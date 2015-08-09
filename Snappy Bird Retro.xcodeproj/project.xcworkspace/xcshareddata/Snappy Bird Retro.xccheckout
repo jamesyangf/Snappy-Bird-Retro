@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>1AD0625F-9228-4CFD-9545-3056A247F812</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Snappy Bird Retro</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>45E84FCEF9C9B2638295B67E6CEC2D6AF1E3F5E7</key>
 		<string>https://github.com/jamesyangf/Snappy-Bird-Retro.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Snappy Bird Retro.xcodeproj/project.xcworkspace</string>
+	<string>Snappy Bird Retro.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>45E84FCEF9C9B2638295B67E6CEC2D6AF1E3F5E7</key>

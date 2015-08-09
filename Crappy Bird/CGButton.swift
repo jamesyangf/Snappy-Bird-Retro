@@ -10,7 +10,7 @@ import Foundation
 
 import SpriteKit
 
-class GGButton: SKNode {
+class CGButton: SKNode {
     var defaultButton: SKSpriteNode
     var activeButton: SKSpriteNode
     var action: () -> Void
@@ -34,5 +34,42 @@ class GGButton: SKNode {
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //what the button does
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        activeButton.hidden = false
+        defaultButton.hidden = true
+    }
+    
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if let touch = touches.first as? UITouch {
+            var location: CGPoint = touch.locationInNode(self)
+            
+            if defaultButton.containsPoint(location) {
+                activeButton.hidden = false
+                defaultButton.hidden = true
+            } else {
+                activeButton.hidden = true
+                defaultButton.hidden = false
+            }
+        }
+    }
+    
+    
+    
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if let touch = touches.first as? UITouch {
+            var location: CGPoint = touch.locationInNode(self)
+        
+            if defaultButton.containsPoint(location) {
+                action() //runs the action
+            }
+            
+            activeButton.hidden = true
+            defaultButton.hidden = false
+        }
+    }
+    
 }
 
